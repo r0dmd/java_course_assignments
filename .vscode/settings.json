@@ -4,5 +4,6 @@
   "java.project.referencedLibraries": ["lib/**/*.jar"],
   "[java]": {
     "editor.defaultFormatter": "RudraPatel.prettier-plugin-java-vscode"
-  }
+  },
+  "scm.compactFolders": false
 }
