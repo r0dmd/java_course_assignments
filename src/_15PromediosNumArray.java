@@ -16,7 +16,7 @@ public class _15PromediosNumArray {
       while (true) { // Bucle hasta que el usuario ingrese un número válido
         try {
           System.out.print("[" + i + "] -> ");
-          numArray[i] = Integer.parseInt(scanner.nextLine()); // Usa nextLine() y parseInt()
+          numArray[i] = Integer.parseInt(scanner.nextLine());
           break; // Si la entrada es válida, salimos del bucle
         } catch (NumberFormatException e) {
           System.out.println("Error: Debe ingresar un número entero.");
