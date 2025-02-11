@@ -1,0 +1,47 @@
+@startuml ProyectoOrdenCompra
+
+class Cliente {
+    - String nombre
+    - String apellido
+    + Cliente(String nombre, String apellido)
+    + String getNombre()
+    + String getApellido()
+}
+
+class Producto {
+    - String fabricante
+    - String nombre
+    - int precio
+    + Producto(String fabricante, String nombre, int precio)
+    + String getFabricante()
+    + String getNombre()
+    + int getPrecio()
+}
+
+class OrdenCompra {
+    - static int contador
+    - Integer identificador
+    - String descripcion
+    - Date fecha
+    - Cliente cliente
+    - Producto[4] productos
+    + OrdenCompra(String descripcion)
+    + Integer getIdentificador()
+    + String getDescripcion()
+    + Date getFecha()
+    + Cliente getCliente()
+    + Producto[] getProductos()
+    + void setFecha(Date fecha)
+    + void setCliente(Cliente cliente)
+    + void addProducto(Producto producto)
+    + int getGranTotal()
+}
+
+class EjemploOrdenes {
+    + static void main(String[] args)
+}
+
+OrdenCompra "1" -- "1" Cliente
+OrdenCompra "1" -- "4" Producto
+
+@enduml
