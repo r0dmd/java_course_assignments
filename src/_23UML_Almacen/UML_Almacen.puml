@@ -1,0 +1,56 @@
+@startuml UML_Almacen
+
+class Producto {
+    # nombre : String
+    # precio : double
+    + Producto(nombre: String, precio: double)
+    + getNombre(): String
+    + getPrecio(): double
+    + toString(): String
+}
+
+class Perecedero extends Producto {
+    - fechaCaducidad : String
+    + Perecedero(nombre: String, precio: double, fechaCaducidad: String)
+    + getFechaCaducidad(): String
+}
+
+class NoPerecedero extends Producto {
+    - contenido : int
+    + NoPerecedero(nombre: String, precio: double, contenido: int)
+    + getContenido(): int
+}
+
+class Limpieza extends Producto {
+    - componentes : String
+    + Limpieza(nombre: String, precio: double, componentes: String)
+    + getComponentes(): String
+}
+
+class Persona {
+    # nombre : String
+    # apellido : String
+    + Persona(nombre: String, apellido: String)
+    + getNombre(): String
+    + getApellido(): String
+}
+
+class Cliente extends Persona {
+    - idCliente : int
+    + Cliente(nombre: String, apellido: String)
+    + getIdCliente(): int
+}
+
+class Vendedor extends Persona {
+    - idVendedor : int
+    + Vendedor(nombre: String, apellido: String, idVendedor: int)
+    + getIdVendedor(): int
+}
+
+Persona <|-- Cliente
+Persona <|-- Vendedor
+Producto <|-- Perecedero
+Producto <|-- NoPerecedero
+Producto <|-- Limpieza
+
+@enduml
