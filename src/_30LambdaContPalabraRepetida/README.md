@@ -1,10 +1,16 @@
-## Tarea 28 - Hilo alfanumérico
+## Tarea 30 - Lambda que cuente palabras de una frase y devuelva la más repetida
 
-Para la tarea se pide implementar una clase llamada AlfanumericoTarea que implemente la interface Runnable y tenga como atributo un enum llamado Tipo.
+Para la tarea se pide como requerimiento escribir una expresión lambda que cuenta la cantidad de veces que se repiten las palabras de una frase y devuelva la mas repetida, según lo siguiente:
 
-El enum Tipo tiene dos elementos NUMERO Y LETRA.
+La expresión lambda debe recibir por argumento una frase u oración y devolver un objeto Map que contenga la palabra mas repetida de la frase como llave y la cantidad de veces que se repite como valor.
 
-Si el tipo es NUMERO, mostrara los números del 1 al 10, excluido el último.
-Si el tipo es LETRA, mostrar las letras de la 'A' a la 'Z', incluido el último.
+Tiene que devolver un objeto Map de java, por ejemplo usando la forma clásica:
 
-Crea un par de hilos de diferentes tipos y ejecutarlos.
+Map<String, Integer> resultado = new HashMap();
+resultado.put(palabra, max);
+return resultado;
+
+o bien usar el helpers abreviado y equivalente:
+return Collections.singletonMap(palabra, max)
+
+Mostrar el resultado en consola iterando el map o bien obteniendo el primer elemento con get().
