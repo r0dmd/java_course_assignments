@@ -1,0 +1,14 @@
+{
+  "[java]": {
+    "editor.defaultFormatter": "RudraPatel.prettier-plugin-java-vscode"
+  },
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-23",
+      "path": "C:/Program Files/Java/jdk-23",
+      "default": true
+    }
+  ],
+  "java.jdt.ls.java.home": "C:/Program Files/Java/jdk-23"
+}
