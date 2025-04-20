@@ -1,0 +1,69 @@
+package com.r0dmd.springboot.springmvc.app.entities;
+
+import java.time.LocalDateTime;
+
+public class User {
+
+  private long id;
+  private String name;
+  private String lastname;
+  private String email;
+  private String username;
+  private LocalDateTime createdAt;
+
+  public User() {}
+
+  public User(String name, String lastname) {
+    this.name = name;
+    this.lastname = lastname;
+    this.createdAt = LocalDateTime.now();
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public long getId() {
+    return id;
+  }
+
+  public String getLastname() {
+    return lastname;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public void setLastname(String lastname) {
+    this.lastname = lastname;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+}
