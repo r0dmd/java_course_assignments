@@ -31,7 +31,7 @@ public class UserController {
     return "view"; // NOTA: Aunque en la ruta y en el nombre del método se pueden poner otras cosas, aquí sí devuelve el nombre de la plantilla html tal como la hemos llamado
   }
 
-  @GetMapping("/")
+  @GetMapping // Si no colocamos ruta, es como poner ("/")
   public String list(Model model) {
     model.addAttribute("title", "Listado de usuarios");
     model.addAttribute("users", service.findAll());
@@ -70,12 +70,10 @@ public class UserController {
 
   @PostMapping
   public String form(User user, Model model, RedirectAttributes redirect) {
-    String message = "";
-    if (user.getId() > 0) {
-      message = "El usuario " + user.getName() + " se ha actualizado con éxito";
-    } else {
-      message = "El usuario " + user.getName() + " se ha añadido con éxito";
-    }
+    String message = (user.getId() > 0)
+      ? "El usuario " + user.getName() + " se ha actualizado con éxito"
+      : "El usuario " + user.getName() + " se ha añadido con éxito";
+
     service.save(user);
     redirect.addFlashAttribute("success", message);
     return "redirect:/users";

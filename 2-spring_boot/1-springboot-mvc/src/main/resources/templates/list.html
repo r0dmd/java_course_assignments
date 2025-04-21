@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+</head>
+
+<body>
+    <main>
+        <h1 th:text="${title}"></h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>lastname</th>
+                    <th>email</th>
+                    <th>created at</th>
+                    <th>edit</th>
+                    <th>remove</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="user: ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name"></td>
+                    <td th:text="${user.lastname}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.createdAt}"></td>
+                    <td><a th:href="@{/form/} + ${user.id}">edit</a></td>
+                    <td><a th:href="@{/delete/} + ${user.id}"
+                            onclick="return confirm('¿Seguro de que desea eliminar a este usuario?')">delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+</body>
+
+</html>
