@@ -11,11 +11,12 @@
     <main>
         <h1 th:text="${title}"></h1>
 
-        <a th:href="@{/users}"" th:text=" Volver"></a>
+        <a th:href="@{/users}" th:text="'Volver'"></a>
 
+        <!-- Formulario con objeto user -->
         <form th:action="@{/users}" method="POST" th:object="${user}">
-
             <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{createdAt}">
 
             <div>
                 <label for="name">Nombre</label>
@@ -33,7 +34,7 @@
             </div>
 
             <div>
-                <label for="username"></label>
+                <label for="username">Usuario</label>
                 <input type="text" th:field="*{username}" id="username">
             </div>
 
@@ -42,10 +43,10 @@
                 <input type="password" th:field="*{password}" id="password">
             </div>
 
-            <button type="submit" th:value="${(user.id != null && user.id > 0) ? 'Editar' : 'Añadir'}"></button>
+            <!-- Botón que muestra "Editar" o "Añadir" basado en el id del usuario; se usa 'and' en la expresión -->
+            <button type="submit" th:text="${(user.id != null and user.id > 0) ? 'Editar' : 'Añadir'}"></button>
         </form>
     </main>
-
 </body>
 
 </html>
