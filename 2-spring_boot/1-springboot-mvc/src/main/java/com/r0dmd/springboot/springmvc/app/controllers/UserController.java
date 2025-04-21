@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
   // Cuando un método del controlador está anotado con un mapping, se llama handler (handler request o handler http, es lo mismo; es para manejar una petición web)
-  @GetMapping({ "/saludar", "/" })
+  @GetMapping({ "/view", "/saludar", "/" })
   public String viewData(Model model) {
     model.addAttribute("title", "Hola mundo desde Spring Boot");
     model.addAttribute("message", "App de ejemplo usando Spring MVC");

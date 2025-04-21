@@ -1,14 +1,28 @@
 package com.r0dmd.springboot.springmvc.app.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "users")
 public class User {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
+
   private String name;
   private String lastname;
   private String email;
   private String username;
+
+  @Column(name = "created_at")
   private LocalDateTime createdAt;
 
   public User() {}
@@ -16,6 +30,10 @@ public class User {
   public User(String name, String lastname) {
     this.name = name;
     this.lastname = lastname;
+  }
+
+  @PrePersist
+  public void prePersist() {
     this.createdAt = LocalDateTime.now();
   }
 
